@@ -1,3 +1,16 @@
+<?php
+if($_POST){
+
+    //Doble "" para textos, '' para variables como txtNombre que llegan
+    $txtNombre=$_POST['txtNombre'];
+    $txtApellido=$_POST['txtApellido'];
+
+    echo "Hola ". $txtNombre . " " . $txtApellido;
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +23,10 @@
 <form action="ejercicio5.php" method="post">
     Nombre:
     <input type="text" name="txtNombre" id="">
+    <br/>
+
+    Apellido:
+    <input type="text" name="txtApellido" id="">
     <br/>
     <input type="submit" value="Enviar">
 </form>
