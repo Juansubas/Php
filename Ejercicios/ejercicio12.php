@@ -17,7 +17,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-COMPATIBLE" content="IE-edge">
-    <meta name="viewport" content="width=devide-width, initial-scale=2.0">
+    <meta name="viewport" content="width=device-width, initial-scale=2.0">
     <title>Document</title>
 </head>
 <body>
