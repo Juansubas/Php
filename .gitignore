@@ -1,0 +1,19 @@
+# Ignorar directorios y archivos generados por Composer
+/vendor/
+/composer.phar
+
+# Ignorar el archivo de configuración de entorno
+.env
+
+# Ignorar archivos de configuración específicos del servidor web
+.htaccess
+/public/.htaccess
+
+# Ignorar archivos de registro y cache generados por la aplicación
+/log/
+/temp/
+/cache/
+
+# Ignorar archivos de configuración de IDEs comunes
+.idea/
+.vscode/
