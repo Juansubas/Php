@@ -2,6 +2,10 @@
 class persona{
 
     public $nombre;
+    //solo desde la misma clase
+    private $edad;
+    //Solo se puede acceder desde la misma clase y subclases con herencia
+    protected $altura;
 
     //metodos con function y con -> para hacer referencia a algo
     public function asignarNombre($nuevoNombre){
