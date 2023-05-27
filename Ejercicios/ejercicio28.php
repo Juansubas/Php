@@ -17,6 +17,29 @@ try {
 
     $conexion->exec($query);
 
+    /*Otra forma mas organizada y mejor:
+
+    // Preparar la consulta
+    $statement = $conexion->prepare($query);
+
+    // Asignar los valores a los parámetros
+    // Anteriormente hay que definir las variables
+    $statement->bindParam(':nombre', $nombre);
+    $statement->bindParam(':edad', $edad);
+    $statement->bindParam(':email', $email);
+
+    // Ejecutar la consulta
+    $statement->execute();
+
+    // Verificar si la inserción fue exitosa
+    if ($statement->rowCount() > 0) {
+        echo "Valores insertados correctamente";
+    } else {
+        echo "Error al insertar valores";
+    }
+
+    */
+
     echo"Conexion establecida";
 
     //Como hemos definidos excepciones lanzadas por PDO
