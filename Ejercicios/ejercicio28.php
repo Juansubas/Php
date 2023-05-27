@@ -12,6 +12,11 @@ try {
     $conexion = new PDO("mysql:host=$servidor;dbname=album", $usuario, $contrasenia);
     //Definimiendo que los errores se manejaran por Excepciones
     $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $query = "INSERT INTO fotos (id, nombres, ruta) VALUES (NULL,'Jugando con la programacion jeje', 'ruta.jpg')";
+
+    $conexion->exec($query);
+
     echo"Conexion establecida";
 
     //Como hemos definidos excepciones lanzadas por PDO
