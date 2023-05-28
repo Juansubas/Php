@@ -3,11 +3,20 @@
 $txtNombre = "";
 $rdgLenguaje = "";
 
+$chkphp = "";
+$chkhtml = "";
+$chkcss = "";
+
 if($_POST){
     $txtNombre = (isset($_POST['txtNombre'])) ? $_POST['txtNombre']: "";
     $rdgLenguaje = (isset($_POST['lenguaje'])) ? $_POST['lenguaje']: "";
 
     //print_r($_POST);
+
+    $chkphp = (isset($_POST['chkphp'])=="si") ? "checked": "";
+    $chkhtml = (isset($_POST['chkhtml'])=="si") ? "checked": "";
+    $chkcss = (isset($_POST['chkcss'])=="si") ? "checked": "";
+
 }
 
 ?>
@@ -46,7 +55,11 @@ if($_POST){
         <label for="css"> css: </label>
         <input type="radio" <?php echo ($rdgLenguaje =="css") ? "checked":"";?> name="lenguaje" value="css" id="css"><br/><br/>
 
-
+        Estas Aprendiendo ....<br/>
+        <!-- este permite seleccionar varias opciones -->
+        <br/> php:<input type="checkbox" <?php echo $chkphp?> name="chkphp" value="si" id="">
+        <br/> html:<input type="checkbox" <?php echo $chkhtml?> name="chkhtml" value="si" id="">
+        <br/> css:<input type="checkbox" <?php echo $chkcss?> name="chkcss" value="si" id="">
 
 
         <input type="submit" value="Enviar informacion">
