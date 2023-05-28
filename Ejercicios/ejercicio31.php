@@ -6,7 +6,10 @@ $rdgLenguaje = "";
 $chkphp = "";
 $chkhtml = "";
 $chkcss = "";
+
 $lsAnime = "";
+
+$txtComentario = "";
 
 if($_POST){
     $txtNombre = (isset($_POST['txtNombre'])) ? $_POST['txtNombre']: "";
@@ -19,6 +22,10 @@ if($_POST){
     $chkcss = (isset($_POST['chkcss'])=="si") ? "checked": "";
 
     $lsAnime = (isset($_POST['lsAnime'])) ? $_POST['lsAnime']: "";
+
+    $txtComentario = (isset($_POST['txtComentario'])) ? $_POST['txtComentario']: "";
+
+    //Instrucciones o lo que quieras agregar
 }
 
 ?>
@@ -46,6 +53,8 @@ if($_POST){
     <strong> Tu Anime es:</strong>
     <?php echo $lsAnime; ?>
     <br/>
+    <strong> Tu mensaje es: </strong>
+    <?php echo $txtComentario;?>
 
     <?php } ?>
     <form action="ejercicio31.php" method="post">
@@ -82,7 +91,10 @@ if($_POST){
             <option <?php echo ($lsAnime == "dragon"? "selected" : "")?> value="dragon">Dragon Ball</option>
         </select>
 
-
+        <br/><br/>Tienes alguna Duda?<br/><br/>
+        <textarea name="txtComentario" id="" cols="30" rows="10">
+            <?php echo $txtComentario ?>
+        </textarea><br/>
 
         <input type="submit" value="Enviar informacion">
     </form>
