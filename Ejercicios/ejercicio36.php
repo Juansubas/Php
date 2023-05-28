@@ -7,7 +7,10 @@
     <title>Sitio web</title>
 </head>
 <body>
+    <!-- Include aunque falle al buscar el archivo
+    y tratar de incluirlo muestra un warning pero deja ejecutar -->
     <?php include 'ejercicio36_1.php' ?>
+    <?php echo "Hola, estoy en la pagina principal"; ?>
 </body>
 
 </html>

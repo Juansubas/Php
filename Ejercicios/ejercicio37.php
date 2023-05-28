@@ -8,9 +8,12 @@
 </head>
 <body>
 <!-- Usaremos require que aunque se parece a include
-hay una diferencia-->
+hay una diferencia es que si ocurre un error no
+ deja interpretar mas codigo-->
 
 <?php require('ejercicio37_1.php'); ?>
+<?php echo "Hola, estoy en la pagina principal"; ?>
+
 
 </body>
 </html>
