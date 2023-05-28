@@ -9,9 +9,16 @@
 <body>
 <!-- Usaremos require que aunque se parece a include
 hay una diferencia es que si ocurre un error no
- deja interpretar mas codigo-->
+ deja interpretar mas codigo
+
+ Si se usa require_once se evita repetir, para eso todo deben ser
+ required_once
+ -->
 
 <?php require('ejercicio37_1.php'); ?>
+<?php require_once('ejercicio37_1.php'); ?>
+<?php require_once('ejercicio37_1.php'); ?>
+
 <?php echo "Hola, estoy en la pagina principal"; ?>
 
 

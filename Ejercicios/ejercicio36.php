@@ -8,8 +8,14 @@
 </head>
 <body>
     <!-- Include aunque falle al buscar el archivo
-    y tratar de incluirlo muestra un warning pero deja ejecutar -->
+    y tratar de incluirlo muestra un warning pero deja ejecutar
+
+    Se puede usar include_once para envitar incluirlo varias veces,
+    pero cada uno que sea repetido debe tener su include_once
+    -->
     <?php include 'ejercicio36_1.php' ?>
+    <?php include_once 'ejercicio36_1.php' ?>
+    <?php include_once 'ejercicio36_1.php' ?>
     <?php echo "Hola, estoy en la pagina principal"; ?>
 </body>
 
