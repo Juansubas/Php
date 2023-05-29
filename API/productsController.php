@@ -33,10 +33,31 @@ switch ($_SERVER['REQUEST_METHOD']){
 
         break;
     case 'PUT':
-        echo 'Actualizar';
+        $_PUT = json_decode(file_get_contents('php://input',true));
+        if(!isset($_PUT->id) || is_null($_PUT->id) || empty(trim($_PUT->id)) ){
+            $respuesta = ['error', 'El ID del producto no debe estar vacio'];
+        }
+        if(!isset($_PUT->name) || is_null($_PUT->name) || empty(trim($_PUT->name)) ){
+            $respuesta = ['error', 'El nombre del producto no debe estar vacio'];
+        }
+        else if(!isset($_PUT->description) || is_null($_PUT->description) || empty(trim($_PUT->description)) ){
+            $respuesta = ['error', 'La descripcion del producto no debe estar vacia'];
+        }
+        else if(!isset($_PUT->price) || is_null($_PUT->price) || empty(trim($_PUT->price)) ){
+            $respuesta = ['error', 'El precio del producto no debe estar vacio'];
+        }else{
+            $respuesta = $productsModel->updateProducts($_PUT->id,$_PUT->name,$_PUT->description,$_PUT->price);
+        }
+        echo json_encode($respuesta);
         break;
     case 'DELETE':
-        echo 'Eliminar';
+        $_DELETE = json_decode(file_get_contents('php://input',true));
+        if( !isset($_DELETE->id) || is_null($_DELETE->id) || empty(trim($_DELETE->id) )){
+            $respuesta = ['error', 'El id del producto no debe estar vacio'];
+        }else{
+            $respuesta = $productsModel->deleteProducts($_DELETE->id);
+        }
+        echo json_encode($respuesta);
         break;
 
 }

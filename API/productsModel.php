@@ -45,6 +45,20 @@ class productsModel{
         return $resultado;
 
     }
+
+    public function updateProducts($id, $name, $description, $price){
+        $sql = "UPDATE products SET name = '$name', description='$description', price='$price' WHERE id='$id'";
+        mysqli_query($this->conexion, $sql);
+        $resultado=["Success", "Producto Actualizado"];
+        return $resultado;
+    }
+
+    public function deleteProducts($id){
+        $sql = "DELETE FROM products WHERE id = '$id'";
+        mysqli_query($this->conexion, $sql);
+        $resultado = ['Success', "Producto Eliminado"];
+        return $resultado;
+    }
 }
 
 ?>
