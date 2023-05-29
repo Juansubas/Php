@@ -2,12 +2,21 @@
 
 class productsModel{
     public $conexion;
-    public function _construct(){
-        $this->conexion = new mysqli('localhost','root','admin','products');
+    public function __construct(){
+        $this->conexion = new mysqli('localhost','root','admin','api');
         mysqli_set_charset($this->conexion, 'utf8');
     }
 
     public function getProducts(){
+        //validacion de la conexion
+        //la propiedad connect_errno retorna el numero del error y en if un numero diferente de cero
+        //es true activando el condicional
+        //en caso de no existir error retorna 0 siendo false
+        if ($this->conexion->connect_errno) {
+            //con connect_error tenemos el mensaje de error.
+            echo "Error en la conexión: " . $this->conexion->connect_error;
+            return "";
+        }
         $products=[];
         $sql="SELECT * FROM products";
         //Llega unos valores despues de la consulta
@@ -22,6 +31,19 @@ class productsModel{
         }
         //retornamos el array final.
         return $products;
+    }
+
+    public function saveProducts($name, $description, $price){
+        $sql="INSERT INTO products(name,description,price) VALUES('$name', '$description', '$price')";
+        if ($this->conexion->connect_errno) {
+            //con connect_error tenemos el mensaje de error.
+            echo "Error en la conexión: " . $this->conexion->connect_error;
+            return "";
+        }
+        mysqli_query($this->conexion,$sql);
+        $resultado=["Success","Producto Guardado"];
+        return $resultado;
+
     }
 }
 
