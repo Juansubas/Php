@@ -1,28 +1,31 @@
 <?php
 
-//Verificar controladores instalados
-//print_r(PDO::getAvailableDrivers());
 
 class Conexion{
+    protected $pdo;
     public function __construct(
-        public string $drive = "mysql",
+        public string $driver = "mysql",
         public string $host = "localhost",
         public string $user = "root",
         public string $pass = "admin",
         public string $dbName = "sunny_side",
-        public string $charset= "utf-8"
+        public string $charset= "utf8"
     )
-    {}
+    {
+        $this->pdo = $this->conexion();
+    }
 
     protected function conexion(){
         try{
-            $pdo = new PDO("$this->driver:host=$this->host;
-            dbname= $this->dbName;
-            charset=$this->charset",$this->user,$this->pass);
+            $dsn = "$this->driver:host=$this->host;dbname=$this->dbName;charset=$this->charset";
+            return new PDO($dsn, $this->user, $this->pass);
         }catch (PDOException $mensaje){
             echo $mensaje->getMessage();
         }
     }
 }
+
+
+
 
 ?>
