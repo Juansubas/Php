@@ -1,5 +1,5 @@
 <?php
-require_once("crud.php");
+require_once("../CRUD/usuario.php");
 class Usuario extends crud {
     public function __construct(
       public int $id = 0,
